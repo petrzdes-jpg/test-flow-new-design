@@ -1,0 +1,197 @@
+/*
+ * FLOW — DESIGN EXPERIMENT · стили компоновок ui-layouts.js (вариант A «Командный центр»).
+ * Токены — из exp.css → exp-bold.css.
+ */
+
+/* ---------- шкала срока ---------- */
+.dl{position:relative; padding:26px 0 26px}
+.dl-c{padding:0}
+.dl-track{position:relative; height:14px; border-radius:99px; background:var(--track)}
+.dl-c .dl-track{height:10px}
+.dl-span{position:absolute; top:0; bottom:0; border-radius:99px; background:color-mix(in srgb, var(--dl-c) 22%, var(--track))}
+.dl-done{position:absolute; top:0; bottom:0; border-radius:99px; background:var(--dl-c)}
+.dl-late{position:absolute; top:-3px; bottom:-3px; border-radius:4px;
+  background:color-mix(in srgb, var(--crit) 40%, transparent)}
+.dl-today{position:absolute; top:-8px; bottom:-8px; width:2px; margin-left:-1px; background:var(--signal); border-radius:2px}
+.dl-c .dl-today{top:-5px; bottom:-5px}
+.dl-dir{position:absolute; top:-10px; bottom:-10px; width:4px; margin-left:-2px; background:var(--brand); border-radius:2px}
+.dl-c .dl-dir{top:-6px; bottom:-6px; width:3px; margin-left:-1.5px}
+.dl-fc{position:absolute; top:50%; width:18px; height:18px; margin:-9px 0 0 -9px; border-radius:50%; background:var(--surface); box-shadow:inset 0 0 0 5px var(--dl-c)}
+.dl-c .dl-fc{width:14px; height:14px; margin:-7px 0 0 -7px; box-shadow:inset 0 0 0 4px var(--dl-c)}
+.dl-lab{position:absolute; left:0; right:0; height:16px; font-size:12px; color:var(--ink-2); white-space:nowrap}
+.dl-lab-top{top:0} .dl-lab-bot{bottom:0}
+.dl-lab span{position:absolute; transform:translateX(-50%); font-variant-numeric:tabular-nums}
+.dl-lab .dl-l-start{transform:none}
+.dl-lab .dl-l-dir{color:var(--brand-ink); font-weight:600}
+.dl-lab .dl-l-fc{color:var(--dl-c); font-weight:700}
+.dl-empty{font-size:13px}
+
+/* ---------- показатели обзора ---------- */
+.lks{display:grid; gap:16px}
+.lks-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.lks-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:1100px){ .lks-4{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:767px){ .lks-3,.lks-4{grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px} }
+.lk{position:relative; display:flex; flex-direction:column; gap:10px; text-align:left; font:inherit; color:var(--ink); border:0; cursor:pointer;
+  background:var(--surface); border-radius:var(--r-xl); box-shadow:var(--elev-1); padding:20px 20px 18px; min-width:0;
+  transition:transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out)}
+.lk-static{cursor:default}
+.lk-t{font-size:14px; font-weight:700}
+.lk-v{font-size:38px; font-weight:700; letter-spacing:-.035em; line-height:1; font-variant-numeric:tabular-nums}
+.lk-v small{font-size:15px; font-weight:600; letter-spacing:0; color:var(--ink-2)}
+.lk-v.good{color:var(--good)} .lk-v.warn{color:var(--warn)} .lk-v.crit{color:var(--crit)}
+.lk-s{font-size:12.5px; color:var(--ink-2); display:flex; flex-wrap:wrap; gap:6px; align-items:center}
+.lk-go{position:absolute; top:16px; right:16px; width:28px; height:28px; border-radius:8px; display:grid; place-items:center; background:var(--surface-2); color:var(--ink-3);
+  transition:background-color 150ms ease, color 150ms ease}
+.lk-go svg{width:14px; height:14px}
+.lk-bar{position:relative; height:8px; border-radius:99px; background:var(--track)}
+.lk-bar > i{position:absolute; left:0; top:0; bottom:0; border-radius:99px; background:var(--good)}
+.lk-bar > i.c{background:color-mix(in srgb, var(--brand) 28%, var(--track))}
+.lk-bar-time > i{background:var(--brand)}
+.lk-bar-fin > i:not(.c){background:var(--good)}
+.lk-bar > b{position:absolute; top:-5px; bottom:-5px; width:3px; margin-left:-1.5px; border-radius:2px; background:var(--ink)}
+.lk-spark{height:30px}
+.lk-spark svg{width:100%; height:30px}
+@media (hover:hover) and (pointer:fine){
+  .lk:not(.lk-static):hover{transform:translateY(-2px); box-shadow:var(--elev-2)}
+  .lk:not(.lk-static):hover .lk-go{background:var(--brand); color:#fff}
+}
+.lk:not(.lk-static):active{transform:scale(.985)}
+@media (max-width:767px){ .lk{padding:14px} .lk-v{font-size:28px} .lk-go{top:12px; right:12px; width:24px; height:24px} }
+
+/* ======================= A · Командный центр ======================= */
+.ox-head{display:flex; align-items:center; gap:20px 32px; flex-wrap:wrap; justify-content:space-between}
+.ox-id{display:flex; align-items:center; gap:18px; min-width:0; flex:1 1 420px}
+.ox-ph{width:84px; height:84px; border-radius:18px; object-fit:cover; flex:none; box-shadow:var(--elev-1)}
+.ox-code{display:grid; place-items:center; background:var(--brand); color:#fff; font-weight:700; font-size:22px}
+.ox-tx{min-width:0}
+.ox-tx h1{font-size:clamp(30px,3vw,42px)}
+.ox-meta{margin-top:6px; color:var(--ink-2); font-size:14.5px}
+.ox-st{background:var(--surface); border-radius:var(--r-xl); box-shadow:var(--elev-1); padding:14px 20px; min-width:260px}
+.ox-st-l{font-size:12.5px; color:var(--ink-2); font-weight:600}
+.ox-st-v{font-size:30px; font-weight:700; letter-spacing:-.03em; font-variant-numeric:tabular-nums; margin-top:2px}
+.ox-st-c{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:6px}
+.ox-delay{font-size:12.5px; color:var(--ink-2)}
+.ox-term .pad{padding-top:4px}
+.ox-grid{display:grid; grid-template-columns:minmax(0,1fr) 400px; gap:20px; align-items:start}
+.ox-main,.ox-rail{display:flex; flex-direction:column; gap:20px; min-width:0}
+.ox-rail{position:sticky; top:16px}
+.ox-rail .ccs{grid-template-columns:1fr 1fr; gap:12px}
+.ox-rail .sig .att-i{padding-right:14px; padding-bottom:34px}
+.ox-rail .sig-a{top:auto; bottom:10px; transform:none; left:34px; right:auto}
+@media (max-width:1200px){ .ox-grid{grid-template-columns:1fr} .ox-rail{position:static} }
+@media (max-width:767px){ .ox-ph{width:56px; height:56px; border-radius:12px} .ox-tx h1{font-size:26px} .ox-st{min-width:0; flex:1 1 100%} .ox-rail .ccs{grid-template-columns:1fr} }
+
+/* портфель A */
+.px-head h1{font-size:clamp(30px,3vw,44px)}
+.px-sent{display:flex; flex-wrap:wrap; gap:6px 18px; margin-top:12px; font-size:15px; color:var(--ink-2)}
+.px-sent b{font-size:20px; font-weight:700; color:var(--ink); margin-right:2px; font-variant-numeric:tabular-nums}
+.px-sent span{display:inline-flex; align-items:baseline; gap:4px}
+.px-sent .ps-good b{color:var(--good)} .px-sent .ps-warn b{color:var(--warn)} .px-sent .ps-crit b{color:var(--crit)}
+.px-sent span + span::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--line-strong); align-self:center; margin-right:12px}
+.px-totals{display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:0; background:var(--surface); border-radius:var(--r-xl); box-shadow:var(--elev-1); overflow:hidden}
+.px-totals > div{padding:16px 20px; display:flex; flex-direction:column; gap:4px; min-width:0}
+.px-totals > div + div{box-shadow:inset 1px 0 0 var(--line)}
+.px-totals span{font-size:12.5px; color:var(--ink-2); font-weight:600}
+.px-totals b{font-size:26px; font-weight:700; letter-spacing:-.03em; font-variant-numeric:tabular-nums; white-space:nowrap}
+.px-totals b small{font-size:13px; font-weight:600; color:var(--ink-2); letter-spacing:0}
+.px-totals em{font-style:normal; font-size:12px; color:var(--ink-3)}
+@media (max-width:1100px){ .px-totals{grid-template-columns:repeat(3,minmax(0,1fr))} .px-totals > div:nth-child(4){box-shadow:inset 0 1px 0 var(--line)} .px-totals > div:nth-child(5){box-shadow:inset 1px 0 0 var(--line), inset 0 1px 0 var(--line)} }
+@media (max-width:767px){ .px-totals{grid-template-columns:1fr 1fr} .px-totals > div{box-shadow:inset 0 -1px 0 var(--line) !important; padding:12px 14px} .px-totals b{font-size:20px} }
+.px-grid{display:grid; grid-template-columns:minmax(0,1fr) 360px; gap:20px; align-items:start}
+@media (max-width:1200px){ .px-grid{grid-template-columns:1fr} }
+.px-board{padding-bottom:10px}
+.px-axis{display:grid; grid-template-columns:280px minmax(0,1fr) 300px; padding:0 24px; height:24px; align-items:end}
+.px-board-s .px-axis{grid-template-columns:220px minmax(0,1fr)}
+.px-ticks{position:relative; height:100%; margin:0 12px}
+.px-ticks i{position:absolute; bottom:4px; transform:translateX(-50%); font-style:normal; font-size:11.5px; color:var(--ink-3); font-variant-numeric:tabular-nums}
+.px-ticks .px-now{position:absolute; bottom:0; width:2px; height:8px; margin-left:-1px; background:var(--signal)}
+.px-row{display:grid; grid-template-columns:280px minmax(0,1fr) 300px; align-items:center; gap:0; width:100%; padding:12px 24px; border:0; background:transparent;
+  color:var(--ink); font:inherit; text-align:left; cursor:pointer; box-shadow:inset 0 1px 0 var(--line); transition:background-color 150ms ease}
+.px-board-s .px-row{grid-template-columns:220px minmax(0,1fr); padding:10px 24px}
+@media (hover:hover) and (pointer:fine){ .px-row:hover{background:var(--hover)} }
+.px-id{display:flex; align-items:center; gap:14px; min-width:0}
+.px-id img,.px-ini{width:56px; height:56px; border-radius:12px; object-fit:cover; flex:none}
+.px-ini{display:grid; place-items:center; background:var(--brand); color:#fff; font-weight:700}
+.px-nm{display:flex; flex-direction:column; gap:2px; min-width:0}
+.px-nm b{font-size:16px; font-weight:700; letter-spacing:-.01em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.px-nm small{font-size:12.5px; color:var(--ink-2); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.px-tl{padding:0 12px; min-width:0}
+.px-m{display:flex; flex-direction:column; align-items:flex-end; gap:6px}
+.px-nums{display:flex; gap:16px}
+.px-nums span{display:flex; flex-direction:column; align-items:flex-end}
+.px-nums small{font-size:11.5px; color:var(--ink-3)}
+.px-nums b{font-size:14.5px; font-weight:700; font-variant-numeric:tabular-nums}
+.px-legend{display:flex; flex-wrap:wrap; gap:6px 18px; padding:12px 24px 8px; font-size:12px; color:var(--ink-2); box-shadow:inset 0 1px 0 var(--line)}
+.px-legend span{display:inline-flex; align-items:center; gap:7px}
+.px-legend i{display:inline-block}
+.lg-span{width:22px; height:8px; border-radius:99px; background:color-mix(in srgb, var(--good) 22%, var(--track))}
+.lg-done{width:22px; height:8px; border-radius:99px; background:var(--good)}
+.lg-dir{width:3px; height:14px; border-radius:2px; background:var(--brand)}
+.lg-fc{width:12px; height:12px; border-radius:50%; box-shadow:inset 0 0 0 3.5px var(--warn)}
+.lg-late{width:22px; height:10px; border-radius:3px; background:color-mix(in srgb, var(--crit) 40%, transparent)}
+@media (max-width:900px){
+  .px-axis{display:none}
+  .px-row{grid-template-columns:1fr; gap:12px; padding:14px 16px}
+  .px-board-s .px-row{grid-template-columns:1fr}
+  .px-m{flex-direction:row; justify-content:space-between; align-items:center}
+  .px-legend{padding:12px 16px}
+}
+.px-rail{display:flex; flex-direction:column; gap:16px; position:sticky; top:16px}
+@media (max-width:1200px){ .px-rail{position:static} }
+.px-sig{display:flex; flex-direction:column; gap:6px}
+.px-sig-i{display:flex; gap:12px; align-items:flex-start; text-align:left; border:0; background:var(--surface-2); color:var(--ink); font:inherit; font-size:13.5px; line-height:1.4;
+  padding:11px 12px; border-radius:12px; cursor:pointer; transition:background-color 150ms ease, transform 140ms var(--ease-out)}
+.px-sig-i small{display:block; font-size:11.5px; color:var(--ink-3); margin-bottom:2px}
+.px-sig-i .sev{width:8px; height:8px; border-radius:50%; flex:none; margin-top:6px}
+@media (hover:hover) and (pointer:fine){ .px-sig-i:hover{background:var(--surface-3)} }
+.px-sig-i:active{transform:scale(.98)}
+.px-add-wide{display:flex; align-items:center; gap:14px; border:2px dashed var(--line-strong); background:transparent; border-radius:var(--r-xl); padding:16px 18px; color:var(--ink); font:inherit; text-align:left; cursor:pointer}
+.px-add-wide > svg{width:22px; height:22px; color:var(--brand)}
+.px-add-wide small{display:block; color:var(--ink-3); font-size:12px}
+@media (hover:hover) and (pointer:fine){ .px-add-wide:hover{border-color:var(--brand)} }
+
+@media (prefers-reduced-motion:reduce){
+  .lk:hover{transform:none}
+}
+
+/* --- правки после первого просмотра --- */
+.dl-lab span.r{transform:translateX(-100%)} .dl-lab span.l{transform:none}
+.lk-v{white-space:nowrap; font-size:clamp(28px,2.6vw,38px)}
+.ox-rail{position:static}
+.ox-main > .ccs{grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px}
+@media (max-width:1100px){ .ox-main > .ccs{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:767px){ .ox-main > .ccs{grid-template-columns:1fr} }
+.px-head > div:first-child{flex:1 1 0 !important}
+.px-head{align-items:flex-end !important}
+@media (min-width:901px){ .px-axis,.px-row{grid-template-columns:300px minmax(0,1fr) 170px} }
+.px-kv{display:flex; flex-wrap:wrap; gap:2px 12px; margin-top:6px; font-size:12px; color:var(--ink-3)}
+.px-kv b{color:var(--ink); font-weight:700}
+.px-in{display:flex; flex-direction:column; align-items:flex-end}
+.px-in small{font-size:11.5px; color:var(--ink-3)}
+.px-in b{font-size:16px; font-weight:700; font-variant-numeric:tabular-nums}
+@media (min-width:1201px){ .px-grid{grid-template-columns:minmax(0,1fr) 340px} }
+/* решения в узких колонках: действия под текстом, а не справа */
+.ox-rail .sig .att-i{padding-right:36px; padding-bottom:36px}
+.ox-rail .sig-a{top:auto; bottom:12px; transform:none; left:34px; right:auto}
+.lk-money .lk-v{white-space:normal}
+.lk-money .lk-v small{white-space:nowrap}
+@media (max-width:767px){ .lk-v{white-space:normal} .lk-s .chip{white-space:normal} }
+
+/* ======================= сквозные правки разделов ======================= */
+/* календарь портфеля: класс .today у дня ленты совпадал с маркером «сегодня» графика и уводил блок дня в абсолютное позиционирование */
+.agd.today{position:static; width:auto; margin-left:0; top:auto; bottom:auto; background:none !important; pointer-events:auto}
+.agd.today .agd-h b{color:var(--signal-ink)}
+/* метки важности — точки, а не цветные полосы слева */
+.rep-i .sev{width:8px; height:8px; align-self:flex-start; margin-top:6px; border-radius:50%}
+.ksl.over{box-shadow:none; background:var(--crit-soft)}
+.note[style*="border-left"]{border-left:0 !important}
+.head > .eyebrow:first-child{display:none}
+/* ряды фильтров с выпадающими списками */
+.panel .pad > select.inp,.panel .pad > .row-f > select{min-width:200px}
+/* боковая панель формы: поля прокручиваются, кнопки действий всегда внизу */
+@media (min-width:900px){
+  .modal.wide > form:not(.plain){display:flex; flex-direction:column; flex:1; min-height:0}
+  .modal.wide .mb{flex:1 1 auto}
+  .modal.wide .mf{background:var(--surface); box-shadow:0 -1px 0 var(--line); border-top:0}
+}

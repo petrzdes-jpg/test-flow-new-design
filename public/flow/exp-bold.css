@@ -1,0 +1,247 @@
+/*
+ * FLOW — DESIGN EXPERIMENT · слой «Штаб» (вторая итерация, после отзыва «сухо, не привлекает»).
+ * Подключается после exp.css. Разметка и логика не меняются.
+ *
+ * Что меняется по сравнению с первой итерацией:
+ *  · характер: глубокий ночной синий штаба + насыщенный кобальт действий + сигнальный оранжевый
+ *    (цвет строительной сигнализации) для «сегодня», директивного срока и активного места;
+ *  · фото объекта становится героем: шапка объекта — полноразмерная фотография под нейтральной
+ *    затемняющей подложкой (единственный допустимый «градиент» — scrim над фото);
+ *  · крупная типографика цифр: показатели читаются с расстояния, как табло;
+ *  · глубина: карточки на мягкой тени и приподнимаются при наведении — интерфейс отвечает руке;
+ *  · фото в карточках портфеля медленно приближается при наведении (только мышь, не при reduced motion).
+ */
+
+:root:not(#_), :root[data-theme="light"]:not(#_){
+  --plane:#EEF0F5; --surface:#FFFFFF; --surface-2:#F4F6FA; --surface-3:#E7EAF1; --hover:#F7F8FB;
+  --ink:#0A1226; --ink-2:#4A5570; --ink-3:#6B7590;
+  --line:#E4E7EE; --line-strong:#D2D7E2; --track:#E6E9F0;
+  --brand:#2F54EB; --brand-2:#2342C9; --brand-tint:#EBEFFE; --brand-ink:#2342C9;
+  --accent:#2F54EB; --accent-surface:#0B1736; --accent-soft:#EBEFFE; --accent-2:#2342C9;
+  --signal:#FF6A1A; --signal-ink:#D94F00; --signal-soft:#FFF0E6;
+  --good:#0E9F6E; --good-soft:#E3F6EE; --warn:#E08600; --warn-ink:#A35F00; --warn-soft:#FFF3DC; --warn-track:#FBE5BD;
+  --crit:#E0383E; --crit-soft:#FDE8E8;
+  --elev-1:0 1px 2px rgba(10,18,38,.05), 0 4px 14px -6px rgba(10,18,38,.10);
+  --elev-2:0 2px 4px rgba(10,18,38,.06), 0 16px 36px -12px rgba(10,18,38,.22);
+  --float:0 2px 6px rgba(10,18,38,.08), 0 24px 56px -16px rgba(10,18,38,.32);
+  --scrim:rgba(6,11,26,.5);
+  --r-xl:16px; --r-lg:12px; --r-md:10px; --r-sm:8px;
+  --sb-bg:#0B1736; --sb-ink:rgba(226,232,248,.72); --sb-ink-2:#FFFFFF; --sb-muted:rgba(226,232,248,.46);
+  --sb-hover:rgba(255,255,255,.06); --sb-line:rgba(255,255,255,.08); --sb-card:rgba(255,255,255,.05); --sb-active:#2F54EB;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]):not(#_){
+    --plane:#070B16; --surface:#0F1526; --surface-2:#151C30; --surface-3:#1C2440; --hover:#131A2D;
+    --ink:#EEF1F8; --ink-2:#A7B0C6; --ink-3:#7F89A3; --line:#1E263B; --line-strong:#2A3450; --track:#222B44;
+    --brand:#5577FF; --brand-2:#6B89FF; --brand-tint:#1A2350; --brand-ink:#9DB2FF;
+    --accent:#5577FF; --accent-surface:#0B1736; --accent-soft:#1A2350; --accent-2:#9DB2FF;
+    --signal:#FF7A30; --signal-ink:#FF9A5C; --signal-soft:#3A2414;
+    --elev-1:0 1px 2px rgba(0,0,0,.4), 0 6px 18px -8px rgba(0,0,0,.6);
+    --elev-2:0 2px 6px rgba(0,0,0,.5), 0 18px 40px -12px rgba(0,0,0,.75);
+    --sb-bg:#060A17; --sb-active:#3D60F0;
+  }
+}
+:root[data-theme="dark"]:not(#_){
+  --plane:#070B16; --surface:#0F1526; --surface-2:#151C30; --surface-3:#1C2440; --hover:#131A2D;
+  --ink:#EEF1F8; --ink-2:#A7B0C6; --ink-3:#7F89A3; --line:#1E263B; --line-strong:#2A3450; --track:#222B44;
+  --brand:#5577FF; --brand-2:#6B89FF; --brand-tint:#1A2350; --brand-ink:#9DB2FF;
+  --accent:#5577FF; --accent-surface:#0B1736; --accent-soft:#1A2350; --accent-2:#9DB2FF;
+  --signal:#FF7A30; --signal-ink:#FF9A5C; --signal-soft:#3A2414;
+  --elev-1:0 1px 2px rgba(0,0,0,.4), 0 6px 18px -8px rgba(0,0,0,.6);
+  --elev-2:0 2px 6px rgba(0,0,0,.5), 0 18px 40px -12px rgba(0,0,0,.75);
+  --sb-bg:#060A17; --sb-active:#3D60F0;
+}
+
+/* ---------- типографика: крупнее и плотнее ---------- */
+h1{font-size:clamp(28px,2.6vw,38px); font-weight:700; letter-spacing:-.03em; line-height:1.08}
+h2{font-size:18px; font-weight:700; letter-spacing:-.015em}
+.panel > header h2,.panel > header h3{font-size:17px; font-weight:700; letter-spacing:-.015em}
+.head p.muted{font-size:14.5px}
+.big{font-size:40px; font-weight:700; letter-spacing:-.035em; line-height:1}
+.big small{font-size:16px; font-weight:600; letter-spacing:0}
+
+/* ---------- боковая панель штаба ---------- */
+.sidebar{background:var(--sb-bg)}
+.logo{background:var(--brand); color:#fff; border-radius:10px}
+.sb-proj{background:rgba(255,255,255,.06); border-radius:12px}
+.nav-i{border-radius:10px; color:var(--sb-ink)}
+@media (hover:hover) and (pointer:fine){ .nav-i:hover{background:var(--sb-hover); color:#fff} }
+.nav-i[aria-current="page"],
+:root[data-theme="dark"] .nav-i[aria-current="page"]{background:var(--sb-active); color:#fff; font-weight:600}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .nav-i[aria-current="page"]{color:#fff} }
+.nav-i[aria-current="page"] svg{opacity:1}
+.nav-i .cnt{background:var(--signal); color:#fff}
+.nav-i[aria-current="page"] .cnt{background:#fff; color:var(--brand-2)}
+.sb-grp{color:var(--sb-muted)}
+.sb-card{background:rgba(255,255,255,.05); border-radius:12px}
+
+/* ---------- верхняя строка ---------- */
+.datepill{background:var(--surface); box-shadow:var(--elev-1); border-radius:10px; height:36px}
+.datepill b,.datepill strong{color:var(--signal-ink)}
+.icon-btn{border-radius:10px; box-shadow:var(--elev-1); height:36px; width:36px}
+
+/* ---------- кнопки ---------- */
+.btn{height:38px; border-radius:10px; font-weight:600; background:var(--surface); box-shadow:inset 0 0 0 1px var(--line-strong)}
+.btn.sm{height:32px; border-radius:8px}
+.btn.primary{background:var(--brand); color:#fff; box-shadow:0 1px 2px rgba(10,18,38,.12)}
+@media (hover:hover) and (pointer:fine){
+  .btn:hover{background:var(--surface-2); box-shadow:inset 0 0 0 1px var(--ink-3)}
+  .btn.primary:hover{background:var(--brand-2); box-shadow:0 2px 6px rgba(10,18,38,.16)}
+}
+
+/* ---------- метки и фильтры ---------- */
+.chip{border-radius:999px; padding:3px 10px 3px 8px; font-weight:600}
+.fchip{border-radius:999px; padding:7px 13px; background:var(--surface); box-shadow:inset 0 0 0 1px var(--line-strong); color:var(--ink-2)}
+.fchip[aria-pressed="true"]{background:var(--ink); color:var(--surface); box-shadow:none}
+.fchip[aria-pressed="true"] b{color:inherit}
+.seg{background:var(--surface-3); border-radius:12px; padding:4px}
+.seg button,.seg-b{border-radius:9px}
+.seg button[aria-pressed="true"],.seg-b[aria-pressed="true"],.seg-b[aria-current="page"],.seg-b:has(input:checked),.seg .seg-ind{background:var(--surface); box-shadow:var(--elev-1)}
+.adm-tabs{border-radius:12px; padding:4px}
+.inp,.fld input,.fld select,.fld textarea{border-radius:10px !important}
+
+/* ---------- панели: мягкая глубина ---------- */
+.panel{border-radius:var(--r-xl); box-shadow:var(--elev-1)}
+.panel > header{padding:20px 24px 12px}
+.pad{padding:0 24px 22px}
+@media (max-width:767px){ .panel > header{padding:16px 16px 10px} .pad{padding:0 16px 16px} }
+
+/* ---------- шапка объекта: фото — герой ---------- */
+.stamp{border-radius:var(--r-xl); box-shadow:var(--elev-2); background:var(--surface)}
+.stamp-main{position:relative; isolation:isolate; min-height:240px; align-items:flex-end; padding:28px 32px; background:var(--accent-surface); overflow:hidden}
+.stamp .bg{display:block; position:absolute; inset:0; z-index:-1; opacity:1; mix-blend-mode:normal; background-size:cover; background-position:center 40%}
+/* нейтральная подложка над фото: читаемость белого текста */
+.stamp .bg::after{background:linear-gradient(180deg, rgba(6,11,26,.18) 0%, rgba(6,11,26,.55) 55%, rgba(6,11,26,.86) 100%)}
+.stamp:has(.bg) .stamp-main{background:transparent}
+.stamp:has(.bg){display:grid}
+.stamp:has(.bg) > .bg{grid-area:1/1; position:relative; inset:auto; min-height:260px}
+.stamp:has(.bg) > .stamp-main{grid-area:1/1; z-index:1}
+.stamp:has(.bg) > dl{grid-area:2/1}
+.stamp h1{font-size:clamp(30px,3.2vw,44px); font-weight:700; letter-spacing:-.035em; text-shadow:0 1px 12px rgba(0,0,0,.25)}
+.stamp .addr{font-size:14.5px; color:rgba(255,255,255,.9)}
+.stamp-main .eyebrow{font-size:13.5px; color:rgba(255,255,255,.78)}
+.mark{width:60px; height:60px; border-radius:14px; background:#fff; color:var(--accent-surface); font-size:19px; align-self:flex-end}
+.stamp dl > *{padding:14px 24px}
+.stamp dt{font-size:12.5px; color:var(--ink-3)}
+.stamp dd{font-size:17px; font-weight:700}
+@media (max-width:767px){
+  .stamp:has(.bg) > .bg{min-height:220px}
+  .stamp-main{padding:20px; min-height:200px}
+  .stamp h1{font-size:26px}
+  .mark{width:44px; height:44px; font-size:15px; border-radius:10px}
+}
+
+/* ---------- показатели: отдельные карточки-табло ---------- */
+.kpis{gap:16px; background:transparent; border-radius:0; overflow:visible}
+.kpi{background:var(--surface); border-radius:var(--r-xl); box-shadow:var(--elev-1); padding:22px 22px 18px; gap:12px; position:relative; overflow:hidden}
+@media (hover:hover) and (pointer:fine){
+  .kpi:hover{background:var(--surface); box-shadow:var(--elev-2); transform:translateY(-2px)}
+  .kpi:hover .go{background:var(--brand); color:#fff}
+  .kpi-static:hover{transform:none; box-shadow:var(--elev-1)}
+}
+.kpi{transition:transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out), background-color 150ms ease}
+.kpi .go{width:26px; height:26px; border-radius:8px; background:var(--surface-2)}
+.kpi-top .t{font-size:14px; font-weight:700; color:var(--ink)}
+.bar{height:8px; border-radius:99px; background:var(--track)}
+.bar > i,.bar > span{border-radius:99px}
+.bar > b{background:var(--signal); width:3px; top:-4px; height:16px; border-radius:2px}
+
+/* полосы показателей разделов: табло с крупными цифрами */
+.tiles{gap:12px; background:transparent; border-radius:0; overflow:visible}
+.tile{background:var(--surface); border-radius:var(--r-lg); box-shadow:var(--elev-1); padding:16px 18px}
+.tile .v{font-size:28px; font-weight:700; letter-spacing:-.03em}
+.tile .eyebrow{font-size:13px; font-weight:600; color:var(--ink-2)}
+
+/* ---------- портфель ---------- */
+.pcards{gap:20px}
+.pcard{border-radius:var(--r-xl); box-shadow:var(--elev-1); transition:transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out)}
+.pcard .ph{aspect-ratio:16/9; overflow:hidden}
+.pcard .ph img{transition:transform 600ms var(--ease-out)}
+.pcard .ph::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(6,11,26,.35) 0%, transparent 35%); pointer-events:none}
+.pcard .ph .ov{z-index:1}
+@media (hover:hover) and (pointer:fine){
+  .pcard:hover{transform:translateY(-3px); box-shadow:var(--elev-2)}
+  .pcard:hover .ph img{transform:scale(1.04)}
+}
+.pill-dark{background:rgba(255,255,255,.94); color:var(--ink); border-radius:999px; padding:5px 10px; font-weight:600}
+.pcard .ph .chip{border-radius:999px; box-shadow:none; background:rgba(255,255,255,.94)}
+.pcard h3{font-size:20px; font-weight:700; letter-spacing:-.025em}
+.pcard .bd{padding:18px 20px 18px}
+.pk{border:0; background:var(--surface-2); border-radius:12px; padding:2px 0}
+.pk > div{padding:10px 12px}
+.pk > div + div{box-shadow:inset 1px 0 0 var(--line)}
+.pk .v{font-size:15px; font-weight:700}
+.pcard .ring{display:block}
+.pcard-add{border-radius:var(--r-xl); border:2px dashed var(--line-strong) !important}
+@media (hover:hover) and (pointer:fine){ .pcard-add:hover{border-color:var(--brand) !important; transform:none; box-shadow:none} }
+.pcard-add .pa-ic{background:var(--brand)}
+
+/* ---------- список «требует решения» ---------- */
+.att-i{border-radius:12px; background:var(--surface-2)}
+@media (hover:hover) and (pointer:fine){ .att-i:hover{background:var(--surface-3)} }
+.ntf-i,.pli,.agi,.reg-i,.est-row,.cr-card,.sl-i,.qlink{border-radius:12px}
+
+/* ---------- таблицы и гант ---------- */
+.t th{color:var(--ink-3)}
+.t tbody tr:hover td{background:var(--hover)}
+.today,.today-pill{background:var(--signal) !important}
+.today-pill{border-radius:6px; font-weight:700}
+.gbar{border-radius:4px}
+.cal-d.td{box-shadow:inset 0 0 0 2px var(--signal)}
+
+/* ---------- слои ---------- */
+.modal,.psheet,.qc{border-radius:18px; box-shadow:var(--float)}
+@media (min-width:900px){ .modal.wide{border-radius:18px 0 0 18px} }
+.toast{border-radius:12px; background:var(--ink); color:var(--surface)}
+
+/* ---------- телефон ---------- */
+@media (max-width:767px){
+  .botnav{box-shadow:0 -8px 24px -12px rgba(10,18,38,.18)}
+  .botnav button[aria-current="page"]{color:var(--brand)}
+  .botnav button[aria-current="page"]::before{background:var(--signal); height:3px; left:32%; right:32%}
+  .kpis{gap:10px}
+  .kpi{padding:16px 14px 14px}
+  .big{font-size:30px}
+  .tiles{gap:8px}
+  .tile .v{font-size:22px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .kpi:hover,.pcard:hover{transform:none}
+  .pcard:hover .ph img{transform:none}
+}
+
+/* исправления: фото под текстом, но над фоном карточки; показатели портфеля — в одну строку */
+.stamp:has(.bg) > .bg{z-index:0}
+.stamp:has(.bg) > .stamp-main{z-index:1; isolation:auto}
+.tile{flex:1 1 150px}
+.stamp .mark{display:grid; place-items:center; line-height:1}
+
+/* ---------- боковая панель: в светлой теме — светло-голубая, в тёмной — ночная ---------- */
+:root:not(#_){ --sb-active-ink:#FFFFFF; --sb-active-shadow:none; }
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]):not(#_){
+    --sb-bg:#E7EFFB; --sb-ink:#3A4865; --sb-ink-2:#0B1A3A; --sb-muted:#6B7A97;
+    --sb-hover:rgba(47,84,235,.08); --sb-line:rgba(28,67,145,.10); --sb-card:rgba(255,255,255,.72);
+    --sb-active:#FFFFFF; --sb-active-ink:#2342C9; --sb-active-shadow:0 1px 2px rgba(10,18,38,.08), 0 4px 10px -6px rgba(10,18,38,.18);
+  }
+}
+:root[data-theme="light"]:not(#_){
+  --sb-bg:#E7EFFB; --sb-ink:#3A4865; --sb-ink-2:#0B1A3A; --sb-muted:#6B7A97;
+  --sb-hover:rgba(47,84,235,.08); --sb-line:rgba(28,67,145,.10); --sb-card:rgba(255,255,255,.72);
+  --sb-active:#FFFFFF; --sb-active-ink:#2342C9; --sb-active-shadow:0 1px 2px rgba(10,18,38,.08), 0 4px 10px -6px rgba(10,18,38,.18);
+}
+.sidebar{background:var(--sb-bg); color:var(--sb-ink-2); box-shadow:inset -1px 0 0 var(--sb-line)}
+.sb-brand,.sb-name{color:var(--sb-ink-2)}
+.sb-name .tag,.sb-brand .tag{color:var(--sb-ink-2) !important; box-shadow:inset 0 0 0 1px var(--sb-line)}
+.sb-proj,.sb-card{background:var(--sb-card)}
+.sb-proj{color:var(--sb-ink-2)}
+.sb-user .sb-un{color:var(--sb-ink-2)}
+.nav-i{color:var(--sb-ink)}
+@media (hover:hover) and (pointer:fine){ .nav-i:hover,.sb-out:hover{background:var(--sb-hover); color:var(--sb-ink-2)} }
+.nav-i[aria-current="page"],
+:root[data-theme="dark"] .nav-i[aria-current="page"],
+:root:not([data-theme="light"]) .nav-i[aria-current="page"]{background:var(--sb-active); color:var(--sb-active-ink); box-shadow:var(--sb-active-shadow); font-weight:600}
+.nav-i[aria-current="page"] .cnt{background:var(--signal); color:#fff}
+.sb-out{border-color:var(--sb-line); color:var(--sb-ink)}
+.logo{background:var(--brand); color:#fff}
