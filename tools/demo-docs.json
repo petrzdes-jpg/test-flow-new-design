@@ -1,0 +1,722 @@
+{
+ "kristall": [
+  {
+   "id": "rd-a8641a2a24b4",
+   "kind": "contract",
+   "title": "Договор подряда № КП-26/МР-015 от 15.09.2026",
+   "org": "ООО «Монолит Инжиниринг»",
+   "contract": "kc6",
+   "public": false,
+   "demo": true,
+   "revisions": [
+    {
+     "rev": 0,
+     "date": "2026-09-15",
+     "file": {
+      "id": "demo-a8641a2a24b4",
+      "name": "KP-26-MR-015_dogovor.pdf",
+      "ext": "pdf",
+      "size": 58981
+     },
+     "note": "Демонстрационный файл",
+     "by": "ООО «Монолит Инжиниринг»"
+    }
+   ],
+   "code": "КП-26/МР-015",
+   "date": "2026-09-15",
+   "status": "accepted",
+   "section": "Договоры",
+   "fields": {
+    "customer": "ООО «Кристалл Девелопмент»",
+    "contractor": "ООО «Монолит Инжиниринг»",
+    "amount": "185 000 000 ₽ с НДС",
+    "term": "01.10.2026 – 30.04.2027"
+   },
+   "tasks": [],
+   "links": []
+  },
+  {
+   "id": "rd-decf618aba6c",
+   "kind": "pd",
+   "title": "ПД. Раздел 4 «Конструктивные решения». Пояснительная записка",
+   "org": "ООО «Проектное бюро «Линия»»",
+   "contract": null,
+   "public": true,
+   "demo": true,
+   "revisions": [
+    {
+     "rev": 0,
+     "date": "2025-11-10",
+     "file": {
+      "id": "demo-decf618aba6c",
+      "name": "KP-PD-KR_poyasnitelnaya.pdf",
+      "ext": "pdf",
+      "size": 52271
+     },
+     "note": "Демонстрационный файл",
+     "by": "ООО «Проектное бюро «Линия»»"
+    },
+    {
+     "rev": 0,
+     "date": "2025-11-10",
+     "file": {
+      "id": "demo-c2e64ba5fc16",
+      "name": "KP-PD-KR_list.pdf",
+      "ext": "pdf",
+      "size": 53368
+     },
+     "note": "Графическая часть",
+     "by": "ООО «Проектное бюро «Линия»»",
+     "extra": true
+    }
+   ],
+   "code": "КП-П-КР",
+   "section": "КР",
+   "set": "КП-П-КР",
+   "date": "2025-11-10",
+   "status": "approved",
+   "tasks": [],
+   "links": []
+  },
+  {
+   "id": "rd-82fec7d7b406",
+   "kind": "rd",
+   "title": "РД КЖ-01. Колонны и пилоны 1–6 этажей",
+   "org": "ООО «Проектное бюро «Линия»»",
+   "contract": null,
+   "public": true,
+   "demo": true,
+   "revisions": [
+    {
+     "rev": 0,
+     "date": "2026-07-30",
+     "file": {
+      "id": "demo-82fec7d7b406",
+      "name": "KP-RD-KZh01.pdf",
+      "ext": "pdf",
+      "size": 58001
+     },
+     "note": "Первая редакция (заменена)",
+     "by": "ООО «Проектное бюро «Линия»»",
+     "replaced": true
+    },
+    {
+     "rev": 1,
+     "date": "2026-08-20",
+     "file": {
+      "id": "demo-82fec7d7b406",
+      "name": "KP-RD-KZh01.pdf",
+      "ext": "pdf",
+      "size": 58001
+     },
+     "note": "Демонстрационный файл",
+     "by": "ООО «Проектное бюро «Линия»»"
+    }
+   ],
+   "code": "КП-Р-КЖ-01",
+   "section": "КЖ",
+   "set": "КЖ-01",
+   "date": "2026-08-20",
+   "status": "production",
+   "tasks": [
+    "k15"
+   ],
+   "links": []
+  },
+  {
+   "id": "rd-c0a30520350b",
+   "kind": "rd",
+   "title": "РД КЖ-02. Плиты перекрытий 1–6 этажей",
+   "org": "ООО «Проектное бюро «Линия»»",
+   "contract": null,
+   "public": true,
+   "demo": true,
+   "revisions": [
+    {
+     "rev": 0,
+     "date": "2026-08-20",
+     "file": {
+      "id": "demo-c0a30520350b",
+      "name": "KP-RD-KZh02.pdf",
+      "ext": "pdf",
+      "size": 58013
+     },
+     "note": "Демонстрационный файл",
+     "by": "ООО «Проектное бюро «Линия»»"
+    }
+   ],
+   "code": "КП-Р-КЖ-02",
+   "section": "КЖ",
+   "set": "КЖ-02",
+   "date": "2026-08-20",
+   "status": "production",
+   "tasks": [
+    "k15"
+   ],
+   "links": []
+  },
+  {
+   "id": "rd-93629e69a92f",
+   "kind": "rd",
+   "title": "РД КЖ-03. Лестничные клетки и стены ядра жёсткости",
+   "org": "ООО «Проектное бюро «Линия»»",
+   "contract": null,
+   "public": true,
+   "demo": true,
+   "revisions": [
+    {
+     "rev": 0,
+     "date": "2026-09-10",
+     "file": {
+      "id": "demo-93629e69a92f",
+      "name": "KP-RD-KZh03.pdf",
+      "ext": "pdf",
+      "size": 54110
+     },
+     "note": "Демонстрационный файл",
+     "by": "ООО «Проектное бюро «Линия»»"
+    }
+   ],
+   "code": "КП-Р-КЖ-03",
+   "section": "КЖ",
+   "set": "КЖ-03",
+   "date": "2026-09-10",
+   "status": "review",
+   "tasks": [
+    "k15"
+   ],
+   "links": []
+  },
+  {
+   "id": "rd-5f61d72a364e",
+   "kind": "rd",
+   "title": "РД АР-01. Планы этажей 1–6",
+   "org": "ООО «Проектное бюро «Линия»»",
+   "contract": null,
+   "public": true,
+   "demo": true,
+   "revisions": [
+    {
+     "rev": 0,
+     "date": "2026-09-10",
+     "file": {
+      "id": "demo-5f61d72a364e",
+      "name": "KP-RD-AR01.pdf",
+      "ext": "pdf",
+      "size": 52848
+     },
+     "note": "Демонстрационный файл",
+     "by": "ООО «Проектное бюро «Линия»»"
+    }
+   ],
+   "code": "КП-Р-АР-01",
+   "section": "АР",
+   "set": "АР-01",
+   "date": "2026-09-10",
+   "status": "approved",
+   "tasks": [],
+   "links": []
+  },
+  {
+   "id": "rd-ca8d3ef01fff",
+   "kind": "rd",
+   "title": "РД ОВ-01. Отопление и вентиляция. Планы сетей 1–6 этажей",
+   "org": "ООО «Проектное бюро «Линия»»",
+   "contract": null,
+   "public": true,
+   "demo": true,
+   "revisions": [
+    {
+     "rev": 0,
+     "date": "2026-09-10",
+     "file": {
+      "id": "demo-ca8d3ef01fff",
+      "name": "KP-RD-OV01.pdf",
+      "ext": "pdf",
+      "size": 54893
+     },
+     "note": "Демонстрационный файл",
+     "by": "ООО «Проектное бюро «Линия»»"
+    }
+   ],
+   "code": "КП-Р-ОВ-01",
+   "section": "ОВ",
+   "set": "ОВ-01",
+   "date": "2026-09-10",
+   "status": "approved",
+   "tasks": [],
+   "links": []
+  },
+  {
+   "id": "rd-80c8f5f1b8df",
+   "kind": "rd",
+   "title": "РД ВК-01. Водоснабжение и канализация. Планы сетей",
+   "org": "ООО «Проектное бюро «Линия»»",
+   "contract": null,
+   "public": true,
+   "demo": true,
+   "revisions": [
+    {
+     "rev": 0,
+     "date": "2026-09-10",
+     "file": {
+      "id": "demo-80c8f5f1b8df",
+      "name": "KP-RD-VK01.pdf",
+      "ext": "pdf",
+      "size": 54723
+     },
+     "note": "Демонстрационный файл",
+     "by": "ООО «Проектное бюро «Линия»»"
+    }
+   ],
+   "code": "КП-Р-ВК-01",
+   "section": "ВК",
+   "set": "ВК-01",
+   "date": "2026-09-10",
+   "status": "remarks",
+   "tasks": [],
+   "links": []
+  },
+  {
+   "id": "rd-ce6afa298e91",
+   "kind": "rd",
+   "title": "РД ЭОМ-01. Электроосвещение и силовое оборудование",
+   "org": "ООО «Проектное бюро «Линия»»",
+   "contract": null,
+   "public": true,
+   "demo": true,
+   "revisions": [
+    {
+     "rev": 0,
+     "date": "2026-09-10",
+     "file": {
+      "id": "demo-ce6afa298e91",
+      "name": "KP-RD-EOM01.pdf",
+      "ext": "pdf",
+      "size": 54783
+     },
+     "note": "Демонстрационный файл",
+     "by": "ООО «Проектное бюро «Линия»»"
+    }
+   ],
+   "code": "КП-Р-ЭОМ-01",
+   "section": "ЭОМ",
+   "set": "ЭОМ-01",
+   "date": "2026-09-10",
+   "status": "draft",
+   "tasks": [],
+   "links": []
+  },
+  {
+   "id": "rd-ec2618174632",
+   "kind": "order",
+   "title": "Приказ № ДЕМО-12 о назначении ответственного за производство работ",
+   "org": "ООО «Монолит Инжиниринг»",
+   "contract": "kc6",
+   "public": false,
+   "demo": true,
+   "revisions": [
+    {
+     "rev": 0,
+     "date": "2026-09-25",
+     "file": {
+      "id": "demo-ec2618174632",
+      "name": "prikaz-01.pdf",
+      "ext": "pdf",
+      "size": 51688
+     },
+     "note": "Демонстрационный файл",
+     "by": "ООО «Монолит Инжиниринг»"
+    }
+   ],
+   "code": "Приказ № ДЕМО-12",
+   "date": "2026-09-25",
+   "status": "accepted",
+   "fields": {
+    "position": "Ответственный за производство работ (прораб)",
+    "person": "вымышленное лицо (демо)",
+    "workType": "frame",
+    "validFrom": "2026-09-25"
+   },
+   "tasks": [],
+   "links": []
+  },
+  {
+   "id": "rd-bc8c26f7377c",
+   "kind": "order",
+   "title": "Приказ № ДЕМО-13 о назначении ответственного за ведение исполнительной документации",
+   "org": "ООО «Монолит Инжиниринг»",
+   "contract": "kc6",
+   "public": false,
+   "demo": true,
+   "revisions": [
+    {
+     "rev": 0,
+     "date": "2026-09-25",
+     "file": {
+      "id": "demo-bc8c26f7377c",
+      "name": "prikaz-02.pdf",
+      "ext": "pdf",
+      "size": 52170
+     },
+     "note": "Демонстрационный файл",
+     "by": "ООО «Монолит Инжиниринг»"
+    }
+   ],
+   "code": "Приказ № ДЕМО-13",
+   "date": "2026-09-25",
+   "status": "accepted",
+   "fields": {
+    "position": "Инженер ПТО",
+    "person": "вымышленное лицо (демо)",
+    "workType": "frame",
+    "validFrom": "2026-09-25"
+   },
+   "tasks": [],
+   "links": []
+  },
+  {
+   "id": "rd-99f7bbf8d49f",
+   "kind": "order",
+   "title": "Приказ № ДЕМО-07 о назначении специалиста строительного контроля",
+   "org": "ООО «ТехЗаказчик Про»",
+   "contract": null,
+   "public": true,
+   "demo": true,
+   "revisions": [
+    {
+     "rev": 0,
+     "date": "2026-09-20",
+     "file": {
+      "id": "demo-99f7bbf8d49f",
+      "name": "prikaz-03.pdf",
+      "ext": "pdf",
+      "size": 51891
+     },
+     "note": "Демонстрационный файл",
+     "by": "ООО «ТехЗаказчик Про»"
+    }
+   ],
+   "code": "Приказ № ДЕМО-07",
+   "date": "2026-09-20",
+   "status": "accepted",
+   "fields": {
+    "position": "Специалист строительного контроля",
+    "person": "вымышленное лицо (демо)",
+    "workType": null,
+    "validFrom": "2026-09-20"
+   },
+   "tasks": [],
+   "links": []
+  },
+  {
+   "id": "rd-68656683d732",
+   "kind": "passport",
+   "title": "Паспорт качества бетонной смеси B30, партия ДЕМО-2041",
+   "org": "ООО «Монолит Инжиниринг»",
+   "contract": "kc6",
+   "public": false,
+   "demo": true,
+   "revisions": [
+    {
+     "rev": 0,
+     "date": "2026-10-02",
+     "file": {
+      "id": "demo-68656683d732",
+      "name": "pasport-beton-B30.pdf",
+      "ext": "pdf",
+      "size": 53069
+     },
+     "note": "Демонстрационный файл",
+     "by": "ООО «Монолит Инжиниринг»"
+    }
+   ],
+   "code": "ДЕМО-П-2041",
+   "date": "2026-10-02",
+   "status": "accepted",
+   "fields": {
+    "material": "Бетонная смесь B30 П4 F150 W6",
+    "manufacturer": "БСУ «Демо-Бетон»",
+    "batch": "ДЕМО-2041",
+    "volume": "48 м³"
+   },
+   "workType": "frame",
+   "tasks": [],
+   "links": []
+  },
+  {
+   "id": "rd-7b4d82b9ccf5",
+   "kind": "cert",
+   "title": "Сертификат соответствия на арматуру А500С (ДЕМО-СС-0001)",
+   "org": "ООО «Монолит Инжиниринг»",
+   "contract": "kc6",
+   "public": false,
+   "demo": true,
+   "revisions": [
+    {
+     "rev": 0,
+     "date": "2026-03-01",
+     "file": {
+      "id": "demo-7b4d82b9ccf5",
+      "name": "sert-armatura-A500C.pdf",
+      "ext": "pdf",
+      "size": 52231
+     },
+     "note": "Демонстрационный файл",
+     "by": "ООО «Монолит Инжиниринг»"
+    }
+   ],
+   "code": "ДЕМО-СС-0001",
+   "date": "2026-03-01",
+   "status": "accepted",
+   "fields": {
+    "material": "Арматура А500С Ø10–28",
+    "manufacturer": "«Демо-Металл»",
+    "validTo": "2029-02-28",
+    "batch": "ДЕМО-А-118, ДЕМО-А-119"
+   },
+   "workType": "frame",
+   "tasks": [],
+   "links": []
+  },
+  {
+   "id": "rd-d72ad46ffa4f",
+   "kind": "passport",
+   "title": "Документ о качестве арматуры А500С Ø25, партия ДЕМО-А-119",
+   "org": "ООО «Монолит Инжиниринг»",
+   "contract": "kc6",
+   "public": false,
+   "demo": true,
+   "revisions": [
+    {
+     "rev": 0,
+     "date": "2026-09-28",
+     "file": {
+      "id": "demo-d72ad46ffa4f",
+      "name": "pasport-armatura.pdf",
+      "ext": "pdf",
+      "size": 51947
+     },
+     "note": "Демонстрационный файл",
+     "by": "ООО «Монолит Инжиниринг»"
+    }
+   ],
+   "code": "ДЕМО-ДК-5530",
+   "date": "2026-09-28",
+   "status": "review",
+   "fields": {
+    "material": "Арматура А500С Ø25",
+    "manufacturer": "«Демо-Металл»",
+    "batch": "ДЕМО-А-119",
+    "volume": "11,2 т"
+   },
+   "workType": "frame",
+   "tasks": [],
+   "links": []
+  },
+  {
+   "id": "rd-34ec0939b15f",
+   "kind": "equipment",
+   "title": "Паспорт оборудования: приточная установка П1",
+   "org": "ООО «Монолит Инжиниринг»",
+   "contract": null,
+   "public": false,
+   "demo": true,
+   "revisions": [
+    {
+     "rev": 0,
+     "date": "2026-09-30",
+     "file": {
+      "id": "demo-34ec0939b15f",
+      "name": "pasport-oborudovanie-P1.pdf",
+      "ext": "pdf",
+      "size": 52788
+     },
+     "note": "Демонстрационный файл",
+     "by": "ООО «Монолит Инжиниринг»"
+    }
+   ],
+   "code": "ДЕМО-0042",
+   "date": "2026-09-30",
+   "status": "draft",
+   "fields": {
+    "equipment": "Приточная установка П1",
+    "model": "ДЕМО-ПУ-4000",
+    "serial": "ДЕМО-0042",
+    "manufacturer": "«Демо-Климат»",
+    "warranty": "24 мес.",
+    "location": "венткамера, отм. +24,000"
+   },
+   "workType": "mep",
+   "tasks": [],
+   "links": []
+  },
+  {
+   "id": "rd-49a1f2838965",
+   "kind": "scheme",
+   "title": "Исполнительная схема колонн 1 этажа",
+   "org": "ООО «Монолит Инжиниринг»",
+   "contract": "kc6",
+   "public": false,
+   "demo": true,
+   "revisions": [
+    {
+     "rev": 0,
+     "date": "2026-10-03",
+     "file": {
+      "id": "demo-49a1f2838965",
+      "name": "isp-shema-kolonny-1et.pdf",
+      "ext": "pdf",
+      "size": 54312
+     },
+     "note": "Демонстрационный файл",
+     "by": "ООО «Монолит Инжиниринг»"
+    }
+   ],
+   "code": "ИС-КЖ-01-1",
+   "date": "2026-10-03",
+   "status": "review",
+   "tasks": [
+    "k15"
+   ],
+   "workType": "frame",
+   "links": [
+    "rd-82fec7d7b406"
+   ]
+  },
+  {
+   "id": "rd-91da3b48a8db",
+   "kind": "journal",
+   "title": "Журнал бетонных работ (выписка)",
+   "org": "ООО «Монолит Инжиниринг»",
+   "contract": "kc6",
+   "public": false,
+   "demo": true,
+   "revisions": [
+    {
+     "rev": 0,
+     "date": "2026-10-04",
+     "file": {
+      "id": "demo-91da3b48a8db",
+      "name": "zhurnal-betonnyh-rabot.pdf",
+      "ext": "pdf",
+      "size": 52512
+     },
+     "note": "Демонстрационный файл",
+     "by": "ООО «Монолит Инжиниринг»"
+    }
+   ],
+   "code": "ЖБР-ДЕМО",
+   "date": "2026-10-04",
+   "status": "review",
+   "tasks": [
+    "k15"
+   ],
+   "workType": "frame",
+   "links": []
+  },
+  {
+   "id": "rd-6e3840b35c18",
+   "kind": "aosr",
+   "title": "АОСР № ДЕМО-01 — армирование колонн 1 этажа",
+   "org": "ООО «Монолит Инжиниринг»",
+   "contract": "kc6",
+   "public": false,
+   "demo": true,
+   "revisions": [
+    {
+     "rev": 0,
+     "date": "2026-10-02",
+     "file": {
+      "id": "demo-6e3840b35c18",
+      "name": "aosr-01-armirovanie.pdf",
+      "ext": "pdf",
+      "size": 52344
+     },
+     "note": "Демонстрационный файл",
+     "by": "ООО «Монолит Инжиниринг»"
+    }
+   ],
+   "code": "ДЕМО-АОСР-01",
+   "date": "2026-10-02",
+   "status": "review",
+   "tasks": [
+    "k15"
+   ],
+   "workType": "frame",
+   "links": [
+    "rd-82fec7d7b406",
+    "rd-7b4d82b9ccf5",
+    "rd-d72ad46ffa4f",
+    "rd-49a1f2838965",
+    "order:rd-bc8c26f7377c"
+   ]
+  },
+  {
+   "id": "rd-a0736bc890a5",
+   "kind": "aosr",
+   "title": "АОСР № ДЕМО-02 — бетонирование колонн 1 этажа",
+   "org": "ООО «Монолит Инжиниринг»",
+   "contract": "kc6",
+   "public": false,
+   "demo": true,
+   "revisions": [
+    {
+     "rev": 0,
+     "date": "2026-10-04",
+     "file": {
+      "id": "demo-a0736bc890a5",
+      "name": "aosr-02-betonirovanie.pdf",
+      "ext": "pdf",
+      "size": 51348
+     },
+     "note": "Демонстрационный файл",
+     "by": "ООО «Монолит Инжиниринг»"
+    }
+   ],
+   "code": "ДЕМО-АОСР-02",
+   "date": "2026-10-04",
+   "status": "draft",
+   "tasks": [
+    "k15"
+   ],
+   "workType": "frame",
+   "links": [
+    "rd-82fec7d7b406",
+    "rd-68656683d732",
+    "rd-91da3b48a8db"
+   ]
+  },
+  {
+   "id": "rd-51b16292f764",
+   "kind": "act",
+   "title": "Акт передачи РД в производство работ № ДЕМО-3",
+   "org": "ООО «ТехЗаказчик Про»",
+   "contract": null,
+   "public": true,
+   "demo": true,
+   "revisions": [
+    {
+     "rev": 0,
+     "date": "2026-09-29",
+     "file": {
+      "id": "demo-51b16292f764",
+      "name": "akt-peredachi-RD.pdf",
+      "ext": "pdf",
+      "size": 52074
+     },
+     "note": "Демонстрационный файл",
+     "by": "ООО «ТехЗаказчик Про»"
+    }
+   ],
+   "code": "ДЕМО-3",
+   "date": "2026-09-29",
+   "status": "accepted",
+   "links": [
+    "rd-82fec7d7b406",
+    "rd-c0a30520350b"
+   ],
+   "tasks": []
+  }
+ ]
+}
