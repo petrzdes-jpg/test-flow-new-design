@@ -1,0 +1,52 @@
+{
+  "id": "./",
+  "name": "Flow — цифровой штаб строительства",
+  "short_name": "Flow",
+  "description": "Flow — цифровой штаб строительства: готовность, сроки, график, бюджет и КС, документы, стройконтроль и ход строительства в одном интерфейсе",
+  "lang": "ru",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0A0F1A",
+  "theme_color": "#0B6BEE",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "assets/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "БЦ «Огни»",
+      "short_name": "Огни",
+      "url": "./#ogni"
+    },
+    {
+      "name": "БЦ «Раменки»",
+      "short_name": "Раменки",
+      "url": "./#ramenki"
+    }
+  ]
+}
